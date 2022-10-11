@@ -1,4 +1,4 @@
-package com.whatsappchatbot.contentservice;
+package com.chatbot.contentservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -12,7 +12,7 @@
       "value": ""
     },
     "newAppServicePlanName": {
-      "value": "asp-content-service"
+      "value": "asp-chatbot-content-service"
     },
     "newAppServicePlanLocation": {
       "value": "West Europe"
