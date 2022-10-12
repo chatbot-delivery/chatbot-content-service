@@ -23,3 +23,11 @@ az webapp config appsettings set --name %APP_SERVICE_NAME% --resource-group %RES
 
 ** Code Deployment   
  Deployment Via CICD (GitHub Actions)
+ 
+ ** Application endpoints
+ 
+ https://chatbot-content-service.azurewebsites.net/dialogs
+ https://chatbot-content-service.azurewebsites.net/dialogs?language=en
+  https://chatbot-content-service.azurewebsites.net/dialogs?language=en&dialogId=change_delivery_date
+ https://chatbot-content-service.azurewebsites.net/dialogs/deliveryoptions
+ 
