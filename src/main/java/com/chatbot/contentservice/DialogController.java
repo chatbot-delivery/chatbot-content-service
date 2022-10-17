@@ -72,13 +72,16 @@ public class DialogController {
 		if (StringUtils.isBlank(language) && StringUtils.isBlank(dialogId)) {
 			List<Dialog> result = new ArrayList<>();
 			dialogs.findAll().iterator().forEachRemaining(result::add);
+			System.out.println(result);
 			return new ResponseEntity<List<Dialog>>(result, HttpStatus.OK);
 		} else if (StringUtils.isNotBlank(language) && StringUtils.isBlank(dialogId)) {
 			List<Dialog> result = dialogs.findByLanguage(language);
+			System.out.println(result);
 			return new ResponseEntity<List<Dialog>>(result, HttpStatus.OK);
 
 		} else if (StringUtils.isNotBlank(language) && StringUtils.isNotBlank(dialogId)) {
 			List<Dialog> result = dialogs.findByLanguageAndDialogId(language, dialogId);
+			System.out.println(result);
 			return new ResponseEntity<List<Dialog>>(result, HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -101,6 +104,7 @@ public class DialogController {
 					DialogText dialogText = dialogTexts.get(i);
 					System.out.println(dialogText);
 					if (dialogSeqNumber.equals(dialogText.getDialogSeqNumber())) {
+						System.out.println(dialogText);
 						return new ResponseEntity<DialogText>(dialogText, HttpStatus.OK);
 					}
 				}
