@@ -127,7 +127,7 @@ public class DialogController {
 				List<DialogText> dialogTexts = dialog.getDialogTexts();
 				System.out.println(dialogTexts.size());
 				for (int i = 0; i < dialogTexts.size(); i++) {
-					deliveryOptions.add(dialogTexts.get(i).getDialogText());
+					deliveryOptions.add(dialogTexts.get(i).getDialogText() + "|" + dialogTexts.get(i).getDialogTextDescription() );
 				}
 				return new ResponseEntity<List<String>>(deliveryOptions, HttpStatus.OK);
 			}
