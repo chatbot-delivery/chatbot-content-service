@@ -4,6 +4,8 @@ public class DialogText {
 	
 	private int dialogSeqNumber;
 
+	private String dialogTextId;
+	
 	private String dialogText;
 
 	private String dialogTextDescription;
@@ -14,6 +16,16 @@ public class DialogText {
 
 	public void setDialogSeqNumber(int dialogSeqNumber) {
 		this.dialogSeqNumber = dialogSeqNumber;
+	}
+	
+	
+
+	public String getDialogTextId() {
+		return dialogTextId;
+	}
+
+	public void setDialogTextId(String dialogTextId) {
+		this.dialogTextId = dialogTextId;
 	}
 
 	public String getDialogText() {
@@ -36,8 +48,8 @@ public class DialogText {
 
 	@Override
 	public String toString() {
-		return "DialogText [dialogSeqNumber=" + dialogSeqNumber + ", dialogText=" + dialogText
-				+ ", dialogTextDescription=" + dialogTextDescription + "]";
+		return "DialogText [dialogSeqNumber=" + dialogSeqNumber + ", dialogTextId=" + dialogTextId + ", dialogText="
+				+ dialogText + ", dialogTextDescription=" + dialogTextDescription + "]";
 	}
 	
 }
