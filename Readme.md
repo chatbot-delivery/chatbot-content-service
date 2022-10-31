@@ -18,7 +18,7 @@ az monitor log-analytics workspace create --resource-group %RESOURCE_GROUP_NAME%
 
 az monitor app-insights component create --app %APP_INSIGHTS_NAME% --location %LOCATION% --kind web --resource-group %RESOURCE_GROUP_NAME% --application-type web --workspace %LOG_ANALYTICS_WORKSPACE%
 
-az webapp config appsettings set --name %APP_SERVICE_NAME% --resource-group %RESOURCE_GROUP_NAME% --settings APPINSIGHTS_INSTRUMENTATIONKEY=f0f9b402-5db1-421a-9896-051a9b33514a APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=f0f9b402-5db1-421a-9896-051a9b33514a ApplicationInsightsAgent_EXTENSION_VERSION=~2
+az webapp config appsettings set --name %APP_SERVICE_NAME% --resource-group %RESOURCE_GROUP_NAME% --settings APPINSIGHTS_INSTRUMENTATIONKEY=94c3811e-f960-4283-a5fc-323bd96a1cac APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=94c3811e-f960-4283-a5fc-323bd96a1cac ApplicationInsightsAgent_EXTENSION_VERSION=~2
 
 
 ** Code Deployment   
