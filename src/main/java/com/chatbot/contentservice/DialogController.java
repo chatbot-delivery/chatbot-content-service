@@ -153,7 +153,7 @@ public class DialogController {
 				for (int i = 0; i < dialogTexts.size(); i++) {
 					DeliveryOption deliveryOption = new DeliveryOption();
 					deliveryOption.setValue(dialogTexts.get(i).getDialogTextId());
-					deliveryOption.setAction(new Action("imBack", dialogTexts.get(i).getDialogText() + "|" + dialogTexts.get(i).getDialogTextDescription(), dialogTexts.get(i).getDialogTextId()));
+					deliveryOption.setAction(new Action("imBack", dialogTexts.get(i).getDialogTextId() + "|" +dialogTexts.get(i).getDialogText() + "|" + dialogTexts.get(i).getDialogTextDescription(), dialogTexts.get(i).getDialogTextId()));
 					deliveryOptionsList.add(deliveryOption);
 				}
 				
