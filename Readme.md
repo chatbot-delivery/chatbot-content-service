@@ -8,7 +8,7 @@ set LOCATION="West Europe"
 set LOG_ANALYTICS_WORKSPACE="chatbot-content-service-workspace"
 set APP_INSIGHTS_NAME="chatbot-content-service-app"
 
-az appservice plan create --name %APP_SERVICE_PLAN_NAME% --resource-group %RESOURCE_GROUP_NAME% --location %LOCATION% --sku F1 
+az appservice plan create --name %APP_SERVICE_PLAN_NAME% --resource-group %RESOURCE_GROUP_NAME% --location %LOCATION% --sku B1 
 
 az webapp create --name %APP_SERVICE_NAME% --resource-group %RESOURCE_GROUP_NAME% --plan %APP_SERVICE_PLAN_NAME% --runtime "java:1.8:Java SE:8"
 
@@ -18,7 +18,7 @@ az monitor log-analytics workspace create --resource-group %RESOURCE_GROUP_NAME%
 
 az monitor app-insights component create --app %APP_INSIGHTS_NAME% --location %LOCATION% --kind web --resource-group %RESOURCE_GROUP_NAME% --application-type web --workspace %LOG_ANALYTICS_WORKSPACE%
 
-az webapp config appsettings set --name %APP_SERVICE_NAME% --resource-group %RESOURCE_GROUP_NAME% --settings APPINSIGHTS_INSTRUMENTATIONKEY=94c3811e-f960-4283-a5fc-323bd96a1cac APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=94c3811e-f960-4283-a5fc-323bd96a1cac ApplicationInsightsAgent_EXTENSION_VERSION=~2
+az webapp config appsettings set --name %APP_SERVICE_NAME% --resource-group %RESOURCE_GROUP_NAME% --settings APPINSIGHTS_INSTRUMENTATIONKEY=a77e9c5a-8e7e-4382-8c0b-66a813861b0c APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=a77e9c5a-8e7e-4382-8c0b-66a813861b0c ApplicationInsightsAgent_EXTENSION_VERSION=~2
 
 
 ** Code Deployment   

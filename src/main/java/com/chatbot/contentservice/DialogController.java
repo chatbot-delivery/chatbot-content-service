@@ -138,9 +138,10 @@ public class DialogController {
 	}
 	
 	@GetMapping(path = "/deliveryoptions/random", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<String>> getDeliveryOptionsRandom(
+	public ResponseEntity<List<DeliveryOption>> getDeliveryOptionsRandom(
 			@RequestParam(value = "language", required = false) String language) {
 		List<String> deliveryOptions = new ArrayList<String>();
+		List<DeliveryOption> deliveryOptionsList = new ArrayList<DeliveryOption>();
 
 		if (StringUtils.isNotBlank(language)) {
 			List<Dialog> result = dialogs.findByLanguageAndDialogId(language, "delivery_options");
@@ -150,10 +151,16 @@ public class DialogController {
 				List<DialogText> dialogTexts = dialog.getDialogTexts();
 				System.out.println(dialogTexts.size());
 				for (int i = 0; i < dialogTexts.size(); i++) {
-					deliveryOptions.add(dialogTexts.get(i).getDialogText());
+					DeliveryOption deliveryOption = new DeliveryOption();
+					deliveryOption.setValue(dialogTexts.get(i).getDialogTextId());
+					deliveryOption.setAction(new Action("imBack", dialogTexts.get(i).getDialogText() + "|" + dialogTexts.get(i).getDialogTextDescription(), dialogTexts.get(i).getDialogTextId()));
+					deliveryOptionsList.add(deliveryOption);
 				}
-				List<String> randomDeliveryOptions = pickRandomDeliveryOptions(deliveryOptions, getRandomNumber(1, 6));
-				return new ResponseEntity<List<String>>(randomDeliveryOptions, HttpStatus.OK);
+				
+				
+				List<DeliveryOption> randomDeliveryOptionsList = pickRandomDeliveryOptions(deliveryOptionsList, getRandomNumber(1, 6));
+				 
+				return new ResponseEntity<List<DeliveryOption>>(randomDeliveryOptionsList, HttpStatus.OK);
 			}
 		}
 
@@ -161,8 +168,8 @@ public class DialogController {
 
 	}
 	
-	private static List<String> pickRandomDeliveryOptions(List<String> lst, int n) {
-	    List<String> copy = new ArrayList<String>(lst);
+	private static List<DeliveryOption> pickRandomDeliveryOptions(List<DeliveryOption> lst, int n) {
+	    List<DeliveryOption> copy = new ArrayList<DeliveryOption>(lst);
 	    Collections.shuffle(copy);
 	    return n > copy.size() ? copy.subList(0, copy.size()) : copy.subList(0, n);
 	}
